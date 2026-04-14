@@ -1,0 +1,133 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_1"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1")
+
+[node name="BgColor" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0588235, 0.0705882, 0.109804, 1)
+
+[node name="RootMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="RootColumns" type="HBoxContainer" parent="RootMargin"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="RosterPanel" type="PanelContainer" parent="RootMargin/RootColumns"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RosterMargin" type="MarginContainer" parent="RootMargin/RootColumns/RosterPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="RosterVBox" type="VBoxContainer" parent="RootMargin/RootColumns/RosterPanel/RosterMargin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="RosterTitle" type="Label" parent="RootMargin/RootColumns/RosterPanel/RosterMargin/RosterVBox"]
+layout_mode = 2
+text = "Minion Roster"
+
+[node name="DayLabel" type="Label" parent="RootMargin/RootColumns/RosterPanel/RosterMargin/RosterVBox"]
+layout_mode = 2
+text = "Day 1"
+
+[node name="ResourcesLabel" type="Label" parent="RootMargin/RootColumns/RosterPanel/RosterMargin/RosterVBox"]
+layout_mode = 2
+text = "Resources"
+
+[node name="MinionList" type="RichTextLabel" parent="RootMargin/RootColumns/RosterPanel/RosterMargin/RosterVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+fit_content = true
+
+[node name="AdvanceDayButton" type="Button" parent="RootMargin/RootColumns/RosterPanel/RosterMargin/RosterVBox"]
+layout_mode = 2
+text = "Advance Day"
+
+[node name="MissionPanel" type="PanelContainer" parent="RootMargin/RootColumns"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="MissionMargin" type="MarginContainer" parent="RootMargin/RootColumns/MissionPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="MissionVBox" type="VBoxContainer" parent="RootMargin/RootColumns/MissionPanel/MissionMargin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="MissionTitle" type="Label" parent="RootMargin/RootColumns/MissionPanel/MissionMargin/MissionVBox"]
+layout_mode = 2
+text = "Nearby Town Missions"
+
+[node name="MissionInfoLabel" type="Label" parent="RootMargin/RootColumns/MissionPanel/MissionMargin/MissionVBox"]
+layout_mode = 2
+text = "Select a mission for an available minion."
+autowrap_mode = 3
+
+[node name="MissionRows" type="VBoxContainer" parent="RootMargin/RootColumns/MissionPanel/MissionMargin/MissionVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+
+[node name="StoryPanel" type="PanelContainer" parent="RootMargin/RootColumns"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 3
+
+[node name="StoryMargin" type="MarginContainer" parent="RootMargin/RootColumns/StoryPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="StoryVBox" type="VBoxContainer" parent="RootMargin/RootColumns/StoryPanel/StoryMargin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="StoryTitle" type="Label" parent="RootMargin/RootColumns/StoryPanel/StoryMargin/StoryVBox"]
+layout_mode = 2
+text = "Return Stories"
+
+[node name="StoryLog" type="RichTextLabel" parent="RootMargin/RootColumns/StoryPanel/StoryMargin/StoryVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+scroll_following = true
+autowrap_mode = 3

@@ -1,0 +1,23 @@
+{
+  "twists": [
+    "On the road, a bridge keeper demanded a song before passage.",
+    "A local child offered a suspiciously accurate map for a copper token.",
+    "Fog rolled in, forcing a detour through abandoned orchards.",
+    "A rumor spread that the guild's seal was cursed."
+  ],
+  "success_lines": [
+    "The town praised the guild and asked for your banner to fly at the gate.",
+    "The mission concluded cleanly, and the locals shared hidden supplies.",
+    "Everything clicked into place; your minion returned with clear wins."
+  ],
+  "partial_lines": [
+    "The objective was met, but only after costly compromises.",
+    "Progress came slowly; the town helped, but only after long persuasion.",
+    "The mission worked out in the end, though not without bruised pride."
+  ],
+  "failure_lines": [
+    "A misunderstanding with local guards forced an early retreat.",
+    "Plans unraveled under pressure, and little was salvaged.",
+    "Bad weather and bad luck turned the task into a cautionary tale."
+  ]
+}

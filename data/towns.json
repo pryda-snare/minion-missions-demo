@@ -1,0 +1,22 @@
+[
+  {
+    "id": "brambleford",
+    "name": "Brambleford",
+    "mood": "wary"
+  },
+  {
+    "id": "sunhollow",
+    "name": "Sunhollow",
+    "mood": "hopeful"
+  },
+  {
+    "id": "ironmere",
+    "name": "Ironmere",
+    "mood": "tense"
+  },
+  {
+    "id": "mosswake",
+    "name": "Mosswake",
+    "mood": "superstitious"
+  }
+]

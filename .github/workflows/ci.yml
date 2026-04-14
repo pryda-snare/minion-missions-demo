@@ -1,0 +1,35 @@
+# Runs the headless GDScript smoke test on every push and pull request.
+# Requires: project.godot, res://tools/smoke_test.gd
+
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Godot
+        env:
+          GODOT_VERSION: "4.6.2"
+        run: |
+          set -euo pipefail
+          ZIP="Godot_v${GODOT_VERSION}-stable_linux.x86_64.zip"
+          curl -fsSL -o "$ZIP" \
+            "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}-stable/${ZIP}"
+          unzip -q "$ZIP"
+          chmod +x "Godot_v${GODOT_VERSION}-stable_linux.x86_64"
+          sudo mv "Godot_v${GODOT_VERSION}-stable_linux.x86_64" /usr/local/bin/godot
+          godot --version
+
+      - name: Smoke test
+        run: |
+          set -euo pipefail
+          godot --headless --path "${GITHUB_WORKSPACE}" --script res://tools/smoke_test.gd
