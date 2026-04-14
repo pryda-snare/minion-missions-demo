@@ -2,22 +2,21 @@ extends SceneTree
 
 ## Headless smoke test: load Main, dispatch one mission, advance days until it resolves.
 ## Run: godot --headless --path "<project>" --script res://tools/smoke_test.gd
+##
+## Uses call_deferred (not await process_frame) so headless CI runners advance reliably.
 
 func _initialize() -> void:
-	_run_async.call_deferred()
+	_begin.call_deferred()
 
 
-func _run_async() -> void:
-	await process_frame
-	await process_frame
-
+func _begin() -> void:
 	var packed: PackedScene = load("res://scenes/Main.tscn") as PackedScene
 	var main: Node = packed.instantiate()
 	root.add_child(main)
+	_run_checks.call_deferred(main)
 
-	await process_frame
-	await process_frame
 
+func _run_checks(main: Node) -> void:
 	var available: Array = main.available_missions
 	if available.is_empty():
 		push_error("smoke: no available missions")
